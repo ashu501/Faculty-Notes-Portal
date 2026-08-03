@@ -9,9 +9,9 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Python Version') {
             steps {
-                bat 'python --version'
+                bat '"C:\\Users\\aceec\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" --version'
             }
         }
 
