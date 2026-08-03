@@ -34,3 +34,8 @@ pipeline {
 
     }
 }
+stage('Archive Files') {
+    steps {
+        archiveArtifacts artifacts: 'uploads/**', allowEmptyArchive: true
+    }
+}
