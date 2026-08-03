@@ -21,21 +21,23 @@ pipeline {
             }
         }
 
+        stage('Create Database') {
+            steps {
+                bat '"C:\\Users\\aceec\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" create_db.py'
+            }
+        }
+
         stage('Syntax Check') {
             steps {
                 bat '"C:\\Users\\aceec\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m py_compile app.py'
             }
         }
-        stage('Run Flask App') {
+
+        stage('Archive Files') {
             steps {
-               bat 'start "" "C:\\Users\\aceec\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" app.py'
+                archiveArtifacts artifacts: 'uploads/**', allowEmptyArchive: true
             }
         }
 
-    }
-}
-stage('Archive Files') {
-    steps {
-        archiveArtifacts artifacts: 'uploads/**', allowEmptyArchive: true
     }
 }
