@@ -1,0 +1,1 @@
+console.log("Faculty Notes Portal Loaded Successfully");
