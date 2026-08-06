@@ -15,10 +15,11 @@ pipeline {
             }
         }
 
-        stage('Check Docker') {
+        stage('Build Docker Image') {
     steps {
-        bat '"C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" --version'
+        bat '"C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t faculty-notes-portal .'
     }
+}
 }
 
         stage('Install Dependencies') {
