@@ -16,10 +16,10 @@ pipeline {
         }
 
         stage('Check Docker') {
-            steps {
-                bat 'docker --version'
-            }
-        }
+    steps {
+        bat '"C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" --version'
+    }
+}
 
         stage('Install Dependencies') {
             steps {
