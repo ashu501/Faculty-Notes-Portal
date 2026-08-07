@@ -38,6 +38,14 @@ pipeline {
                 bat '"C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t faculty-notes-portal .'
             }
         }
+        stage('Stop Old Container') {
+    steps {
+        bat '''
+        "C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop faculty-app
+        "C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm faculty-app
+        '''
+    }
+}
 
         stage('Archive Files') {
             steps {
