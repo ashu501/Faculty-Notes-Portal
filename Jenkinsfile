@@ -39,16 +39,16 @@ pipeline {
             }
         }
         stage('Stop Old Container') {
-    steps {
-        bat '''
+             steps {
+                bat '''
         "C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop faculty-app
         "C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm faculty-app
         '''
-    }
-}
-stage('Run Docker Container') {
-    steps {
-        bat '''
+                   }
+        }
+        stage('Run Docker Container') {
+            steps {
+                bat '''
         "C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name faculty-app -p 5000:5000 faculty-notes-portal
         '''
     }
