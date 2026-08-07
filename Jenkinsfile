@@ -46,6 +46,13 @@ pipeline {
         '''
     }
 }
+stage('Run Docker Container') {
+    steps {
+        bat '''
+        "C:\\Users\\aceec\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name faculty-app -p 5000:5000 faculty-notes-portal
+        '''
+    }
+}
 
         stage('Archive Files') {
             steps {
