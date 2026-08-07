@@ -49,8 +49,15 @@ nav a:hover{
 /* Hero Section */
 
 .hero{
-    text-align:center;
-    padding:60px 20px;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+padding-top:80px;
+
 }
 
 .hero h2{
@@ -104,19 +111,13 @@ nav a:hover{
 }
 
 .card{
-    background:white;
-    width:300px;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
-    text-align:center;
+    transition:0.5s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0px 20px 40px rgba(0,0,0,.3);
 }
-
 .card h3{
     color:#0d6efd;
     margin-bottom:15px;
@@ -265,4 +266,50 @@ nav a:hover{
 
 .container button:hover {
     background: #084298;
+}
+.floating{
+
+animation:floating 4s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+.btn-warning{
+
+border-radius:50px;
+padding:15px 35px;
+
+}
+
+.btn-success{
+
+border-radius:50px;
+padding:15px 35px;
+
+}
+
+.btn-warning:hover{
+
+background:#ffc107;
+
+}
+
+.btn-success:hover{
+
+background:#198754;
+
 }

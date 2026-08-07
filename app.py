@@ -49,6 +49,9 @@ def login():
             return "<h2>Invalid Username or Password</h2>"
 
     return render_template("login.html")
+@app.route("/register")
+def register():
+    return render_template("register.html")
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
@@ -98,5 +101,26 @@ def download(filename):
     upload_folder = os.path.join(app.root_path, "uploads")
 
     return send_from_directory(upload_folder, filename)
+@app.route("/delete/<int:id>")
+def delete(id):
+
+    conn = sqlite3.connect("database/faculty.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT filename FROM notes WHERE id=?", (id,))
+    file = cursor.fetchone()
+
+    if file:
+        filepath = os.path.join("uploads", file[0])
+
+        if os.path.exists(filepath):
+            os.remove(filepath)
+
+    cursor.execute("DELETE FROM notes WHERE id=?", (id,))
+
+    conn.commit()
+    conn.close()
+
+    return redirect("/view_notes")
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
